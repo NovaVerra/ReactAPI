@@ -9,25 +9,32 @@ import './Blog.css'
 class Blog extends Component {
 
 	state = {
-		post: []
+		posts: []
 	}
 
 	componentDidMount () {
 		Axios.get('https://jsonplaceholder.typicode.com/posts')
 			.then(response => {
-				this.setState({post: response.data})
+				const posts = response.data.slice(0, 4)
+				const updatedPosts = posts.map(post => {
+					return {
+						...post,
+						author: 'Max'
+					}
+				})
+				this.setState({posts: updatedPosts})
 				console.log(response)
 			})
 	}
 
 	render () {
-		const post = this.state.post.map(post => {
-			return <Post title={post.title} author={post.id} key={post.id}/>
+		const posts = this.state.posts.map(post => {
+			return <Post title={post.title} author={post.author} key={post.id}/>
 		})
 		return (
 			<div>
 				<section className="Posts">
-					{post}
+					{posts}
 				</section>
 				<section>
 					<FullPost />
