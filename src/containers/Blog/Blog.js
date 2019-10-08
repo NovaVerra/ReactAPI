@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Axios from 'axios'
+// import Axios from 'axios'
+import Axios from '../../axios'
 
 import Post from '../../components/Post/Post'
 import FullPost from '../../components/FullPost/FullPost'
