@@ -47,3 +47,7 @@ class Blog extends Component {
 }
 
 export default Blog
+
+// import React, { Component, Suspense } from 'react
+// const Posts = React.lazy(() => import('path'))
+// <Suspense fallback={<h1>Loading</h1>}><Posts /></Suspense>
